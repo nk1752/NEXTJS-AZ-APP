@@ -9,7 +9,7 @@ export async function getServerSideProps() {
 
 export default function Home({ data }: { data: { time: string }}) {
 
-    // const serverData = JSON.parse(data);
+    const serverData = JSON.parse(data);
 
   return (
     <div className={styles.container}>
@@ -19,18 +19,13 @@ export default function Home({ data }: { data: { time: string }}) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
+     
       <main className={styles.main}>
         <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js! The is {data}</a>
-        </h1>
-
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.tsx</code>
-        </p>
-
-        
+          Welcome to <a href="https://nextjs.org">Next.js! The is {serverData.time}</a>
+        </h1>       
       </main>
+    
 
       <footer className={styles.footer}>
         <a
