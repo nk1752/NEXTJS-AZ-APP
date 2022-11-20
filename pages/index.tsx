@@ -2,7 +2,15 @@ import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 
-export default function Home() {
+export async function getServerSideProps() {
+    const data = JSON.stringify({ time: new Date() });
+    return { props: { data } };
+}
+
+export default function Home({ data }: { data: { time: string }}) {
+
+    const serverData = JSON.parse(data);
+
   return (
     <div className={styles.container}>
       <Head>
